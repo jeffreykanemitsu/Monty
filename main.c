@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	while ((getline(&line, &len, fp)) != -1)
 	{
 		line_num++;
-		token = strtok(line, "\n\t");
+		token = strtok(line, "\r\n\t ");
 		if (token != NULL)
 		{
 			op_struct(line, &stack, line_num);

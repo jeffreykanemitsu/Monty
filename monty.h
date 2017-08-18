@@ -39,5 +39,6 @@ void pall(stack_t **stack, unsigned int line_number);
 int main(int argc, char *argv[]);
 void push(stack_t **stack, unsigned int line_number);
 int op_func(char *opcode, stack_t **stack, unsigned int line_number);
-
+int pint(stack_t **stack, unsigned int line_number);
+int pop(stack_t **stack, unsigned int line_number);
 #endif

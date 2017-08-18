@@ -8,7 +8,7 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t printval;
+	stack_t *printval;
 
 	printval = *stack;
 	if (printval != NULL)

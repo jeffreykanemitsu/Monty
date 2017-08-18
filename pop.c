@@ -8,18 +8,19 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t rmtop;
+	stack_t *rmtop;
 
 	rmtop = *stack;
 
 	if (rmtop != NULL)
 	{
 		rmtop = rmtop->next;
-		printf("%d\n", rmtop->n;
+		printf("%d\n", rmtop->n);
 	}
 	else
 	{
 		printf("L%d: can't pop an empty stack", line_number);
-		exit("EXIT_FAILURE");
+		exit(EXIT_FAILURE);
 	}
+	free(rmtop);
 }
