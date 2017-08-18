@@ -1,4 +1,12 @@
 #include "monty"
+/**
+ * op_func - contains struct for opcodes
+ * @opcode: opcode
+ * @stack: stack
+ * @line_number: line number
+ *
+ * Return: int
+ */
 
 int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 {
