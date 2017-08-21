@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * nop: empty opcode
+ * nop - empty opcode
  * @stack: stack
  * @line_number: line count
  *

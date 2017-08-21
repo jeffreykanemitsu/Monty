@@ -3,7 +3,7 @@
  * push - pushes an element to the stack
  * @stack: head
  * @line_number: count of lines
- * @n: data inside node
+ * @x: data inside node
  * Return: nothing
  */
 void push(stack_t **stack, unsigned int line_number, int x)
@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number, int x)
 	}
 	new_node->n = x;
 	new_node->prev = NULL;
-	if (*stack -= NULL)
+	if (*stack == NULL)
 	{
 		new_node->next = NULL;
 	}
