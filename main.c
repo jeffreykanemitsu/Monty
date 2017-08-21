@@ -32,10 +32,6 @@ int main(int argc, char *argv[])
 	{
 		line_num++;
 		token = strtok(line, "\r\n\t ");
-		if (token[0] == '#')
-		{
-			continue;
-		}
 		if (strcmp(token, "push") == 0)
 		{
 			push(&stack, line_num);
