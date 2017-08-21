@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	unsigned int line_num = 0;
 	size_t len = 0;
 
-	fp = fopen(argv[1], "r")
+	fp = fopen(argv[1], "r");
 	line = NULL;
 	token = NULL;
 	if (argc != 2)
@@ -32,12 +32,20 @@ int main(int argc, char *argv[])
 	{
 		line_num++;
 		token = strtok(line, "\r\n\t ");
-		if (token != NULL)
+		if (token == NULL || token[0] == '#')
 		{
-			op_struct(line, &stack, line_num);
+			continue;
 		}
+		if (strcmp(token, "push") == 0)
+		{
+			push(&stack, line_number);
+		}
+		else
+		{
+			op_struct(token, &stack, line_number);
 	}
 	free(line);
 	fclose(fp);
+	free_stuff(&stack);
 	return (EXIT_SUCCESS);
 }
