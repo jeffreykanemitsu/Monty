@@ -1,32 +1,45 @@
 #include "monty.h"
-/**
- * push - pushes an element to the stack
- * @stack: head
- * @line_number: count of lines
- * @x: data inside node
- * Return: nothing
- */
-void push(stack_t **stack, unsigned int line_number, int x)
-{
-	stack_t *new_node;
-	(void) line_number;
 
+/**
+ * push - function that pushes an element to the stack
+ * @stack: stack
+ * @line_number: data
+ * Return: none
+ **/
+void push(stack_t **stack, unsigned int line_number)
+{
+	int x;
+	char *token;
+	stack_t *new_node;
+
+	token = strtok(NULL, "\r\n\t ");
 	new_node = malloc(sizeof(stack_t));
-	if (stack == NULL || new_node == NULL)
+	if (new_node == NULL)
 	{
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = x;
-	new_node->prev = NULL;
-	if (*stack == NULL)
+	if (token == NULL)
 	{
-		new_node->next = NULL;
+		printf("L%d: usage: push integer", line_number);
+		exit(EXIT_FAILURE);
 	}
-	else
+	for (x = 0; token[x] != '\0'; x++)
+	{
+		if (isdigit(token[x]) == 0)
+		{
+			printf("L%dline_number>: usage: push integer", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	new_node->n = atoi(token);
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	if (*stack != NULL)
 	{
 		new_node->next = *stack;
 		(*stack)->prev = new_node;
 	}
 	*stack = new_node;
 }
+

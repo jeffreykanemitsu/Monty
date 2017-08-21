@@ -32,17 +32,14 @@ int main(int argc, char *argv[])
 	{
 		line_num++;
 		token = strtok(line, "\r\n\t ");
-		if (token == NULL || token[0] == '#')
-		{
-			continue;
-		}
 		if (strcmp(token, "push") == 0)
 		{
-			push(&stack, line_number);
+			push(&stack, line_num);
 		}
 		else
 		{
-			op_struct(token, &stack, line_number);
+			op_struct(token, &stack, line_num);
+		}
 	}
 	free(line);
 	fclose(fp);

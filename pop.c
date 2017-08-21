@@ -12,15 +12,16 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	rmtop = *stack;
 
-	if (rmtop != NULL)
-	{
-		rmtop = rmtop->next;
-		printf("%d\n", rmtop->n);
-	}
-	else
+	if (rmtop == NULL)
 	{
 		printf("L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
+	else if (rmtop->next != NULL)
+	{
+		rmtop->next->prev = NULL;
+	}
+	*stack = rmtop->next;
+	line_number++;
 	free(rmtop);
 }
