@@ -1,6 +1,6 @@
-#include "monty"
+#include "monty.h"
 /**
- * op_func - contains struct for opcodes
+ * op_struct - contains struct for opcodes
  * @opcode: opcode
  * @stack: stack
  * @line_number: line number
@@ -8,10 +8,9 @@
  * Return: int
  */
 
-int op_func(char *opcode, stack_t **stack, unsigned int line_number)
+int op_struct(char *opcode, stack_t **stack, unsigned int line_number)
 {
-	instruction_ op_codes[] = {
-		{"push", push},
+	instruction_t op_codes[] = {
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
@@ -19,7 +18,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{NULL, NULL}
-	},
+	};
 
 	int x = 0;
 
